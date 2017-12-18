@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Visualizer(metaclass=ABCMeta):
+class BaseVisualizer(metaclass=ABCMeta):
     @abstractmethod
     def __init__(self, lowest_key, highest_key, led_amount):
         self.lowest_key = lowest_key
@@ -24,7 +24,7 @@ class Visualizer(metaclass=ABCMeta):
     def get_led_amount(self):
         return self.led_amount
 
-    def update(self):
+    def update(self, Δt = 1):
         print("[vis] update")
 
     def draw(self):
