@@ -11,6 +11,11 @@ class PixelPusher():
     def send_preamble(self):
         self.serial.write([0xFF,0xFF,0xFF,0xFF])
 
+    def set_multiple(self, colors):
+        for index, color in enumerate(colors):
+            set_led(index, color)
+
+
     def set_led(self, led, color):
         if led > 199:
             print("Cant set LED with index > 199!")
