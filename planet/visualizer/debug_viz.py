@@ -6,4 +6,4 @@ class DebugViz(visualizer):
         self.i = 0
 
     def draw(self):
-        return [(1.0,0.0,1.0) * visualizer.get_led_amount()]
+        return [(1.0,0.0,1.0)] * visualizer.get_led_amount()
