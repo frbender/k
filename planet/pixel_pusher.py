@@ -1,10 +1,12 @@
 import serial
+import time
 
 class PixelPusher():
     def __init__(self, config):
         self.port = config["serial"]["port"]
         self.baud = int(config["serial"]["baud"])
         self.serial = serial.Serial(port=self.port, baudrate=self.baud)
+        time.sleep(3)
 
     def send_preamble(self):
         self.serial.write([0xFF,0xFF,0xFF,0xFF])
@@ -14,10 +16,10 @@ class PixelPusher():
             print("Cant set LED with index > 199!")
             return
         r, g, b = color
-        led = int(led).to_bytes(length=1, byteorder='little')
-        r = int(r).to_bytes(length=1, byteorder='little')
-        g = int(g).to_bytes(length=1, byteorder='little')
-        b = int(b).to_bytes(length=1, byteorder='little')
+        led = int(led)
+        r = int(r*255)
+        g = int(g*255)
+        b = int(b*255)
 
         self.send_preamble()
         self.send([led,r,g,b])
