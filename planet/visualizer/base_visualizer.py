@@ -25,7 +25,7 @@ class BaseVisualizer(metaclass=ABCMeta):
         return self.led_amount
 
     def update(self, Δt = 1):
-        print("[vis] update")
+        return
 
     def draw(self):
-        print("[vis] draw")
+        return
