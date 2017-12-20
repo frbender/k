@@ -14,6 +14,7 @@ class PixelPusher():
     def set_multiple(self, colors):
         for index, color in enumerate(colors):
             self.set_led(index, color)
+        self.flush()
 
 
     def set_led(self, led, color):
