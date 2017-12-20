@@ -2,6 +2,7 @@ from configparser import ConfigParser
 from pixel_pusher import PixelPusher
 from blast_piano_processor import BlastPianoProcessor
 from visualizer.viz_one import Viz_One
+from visualizer.particles import Particles
 import time
 import threading
 
