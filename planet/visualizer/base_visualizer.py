@@ -3,7 +3,8 @@ from abc import ABCMeta, abstractmethod
 
 class BaseVisualizer(metaclass=ABCMeta):
     @abstractmethod
-    def __init__(self, lowest_key, highest_key, led_amount):
+    def __init__(self, config, lowest_key, highest_key, led_amount):
+        self.config = config
         self.lowest_key = lowest_key
         self.highest_key = highest_key
         self.led_amount = led_amount

@@ -20,6 +20,7 @@ if __name__ == '__main__':
     pushy = PixelPusher(config=config)
 
     # visualization
+    # todo: add config to vis
     vizzy = Viz_One(lowest_key,
                      highest_key,
                      led_amount)
@@ -33,25 +34,24 @@ if __name__ == '__main__':
         vizzy.key_release(key - lowest_key)
 
 
-    # blaster = BlastPianoProcessor(config=config, key_press_callback=key_press, key_release_callback=key_release)
+    #blaster = BlastPianoProcessor(config=config, key_press_callback=key_press, key_release_callback=key_release)
 
     old_time = time.time()
 
-    pushy.set_all((0, 0.1, 0))
-    pushy.show()
+    #pushy.set_all((0, 0.05, 0))
+    #pushy.show()
 
     vizzy.key_press(10, 1)
     def tick(old_time):
         new_time = time.time()
 
-        print("tick!")
         vizzy.update(new_time - old_time)
-        pushy.set_multiple(vizzy.draw())
+        newColors = vizzy.draw()
+        pushy.set_multiple(newColors)
         pushy.show()
 
-
         old_time = new_time
-        threading.Timer(1, tick, [old_time]).start()
+        threading.Timer(0.0, tick, [old_time]).start()
 
 
     threading.Timer(0.03, tick, [1]).start()
