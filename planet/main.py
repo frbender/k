@@ -21,14 +21,15 @@ if __name__ == '__main__':
 
     # visualization
     # todo: add config to vis
-    vizzy = __import__("visualizer").viz_one.Viz_One(config,
-                    lowest_key,
-                    highest_key,
-                    led_amount)
+    path = config["visualizer"]["name"].split(".")
+    vizzy = getattr(getattr(__import__("visualizer"),path[0]),path[1])(
+        config,
+        lowest_key,
+        highest_key,
+        led_amount)
 
 
     def key_press(key, vel):
-        print(key)
         vizzy.key_press(key - lowest_key, float(vel) / 127.0)
 
 
