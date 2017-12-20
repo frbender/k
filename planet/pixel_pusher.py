@@ -13,7 +13,7 @@ class PixelPusher():
 
     def set_multiple(self, colors):
         for index, color in enumerate(colors):
-            set_led(index, color)
+            self.set_led(index, color)
 
 
     def set_led(self, led, color):
