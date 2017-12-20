@@ -8,6 +8,7 @@ class BaseVisualizer(metaclass=ABCMeta):
         self.lowest_key = lowest_key
         self.highest_key = highest_key
         self.led_amount = led_amount
+        self.key_amount = highest_key - lowest_key
         print("[vis] initialized visualizer")
 
     def key_press(self, key_index, velocity):
