@@ -19,7 +19,7 @@ class Viz_One(BaseVisualizer):
 
     def key_press(self, key_index, velocity):
         led_index = math.floor(
-            self.led_amount * (key_index - self.lowest_key) / (self.highest_key - self.lowest_key))  # todo?
+            self.led_amount * (key_index) / (self.highest_key - self.lowest_key))  # todo?
         
         color = colorsys.hls_to_rgb(self.current_hue, 1, min(velocity, 0.8))
         self.colorStrip[led_index] = [color[0], color[1], color[2]]
