@@ -21,7 +21,7 @@ int input[INPUT_BUFFER_SIZE] = {0}; //Serial input will be buffered here
 
 
 
-#define bautrate 9600
+#define bautrate 115200
 
 
 
@@ -38,25 +38,25 @@ void setup() {
   strip.show(); // Initialize all pixels to 'off'
 
 
-  pushBuffer(255);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(0);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(0);  useBuffer();
-  pushBuffer(255);  useBuffer();
-
-  
-
-  pushBuffer(255);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(255);  useBuffer();
-  pushBuffer(254);  useBuffer();
-  pushBuffer(0);  useBuffer();
-  pushBuffer(0);  useBuffer();
-  pushBuffer(0);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(0);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(0);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//
+//  
+//
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(255);  useBuffer();
+//  pushBuffer(254);  useBuffer();
+//  pushBuffer(0);  useBuffer();
+//  pushBuffer(0);  useBuffer();
+//  pushBuffer(0);  useBuffer();
 
 
 }
@@ -74,9 +74,9 @@ void pushBuffer(int b) {
 
 
 void useBuffer() {
-  Serial.println("Use Buffer...");
-  Serial.println(String(input[7]) + " " + String(input[6]) + " " + String(input[5]) + " " + String(input[4]) + " " + String(input[3]) + " " + String(input[2]) + " " + String(input[1]) + " " + String(input[0]) + " ");
-
+//  Serial.println("Use Buffer...");
+//  Serial.println(String(input[7]) + " " + String(input[6]) + " " + String(input[5]) + " " + String(input[4]) + " " + String(input[3]) + " " + String(input[2]) + " " + String(input[1]) + " " + String(input[0]) + " ");
+//
 
 
   //Validate Input:
@@ -140,7 +140,6 @@ void loop() {
     pushBuffer(inp);
     useBuffer();
   }
-  delay(30);
 }
 
 
