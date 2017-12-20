@@ -1,5 +1,6 @@
 from visualizer.base_visualizer import BaseVisualizer
 import math
+import colorsys
 
 
 class Viz_One(BaseVisualizer):
@@ -11,13 +12,20 @@ class Viz_One(BaseVisualizer):
         self.blurRad = int(self.config["viz_one"]["blur_radius"])
         self.alpha = float(self.config["viz_one"]["alpha"])
 
+        self.current_hue = 0.0
+
     def draw(self):
         return self.colorStrip
 
     def key_press(self, key_index, velocity):
         led_index = math.floor(
             self.led_amount * (key_index - self.lowest_key) / (self.highest_key - self.lowest_key))  # todo?
-        self.colorStrip[led_index] = [0, 0, 1.0]
+        
+        color = colorsys.hls_to_rgb(self.current_hue, 1, max(velocity, 0.8))
+        self.colorStrip[led_index] = [color[0], color[1], color[2]]
+
+        self.current_hue += 0.1
+        self.current_hue = self.current_hue % 1
 
     def key_release(self, key_index):
         return
