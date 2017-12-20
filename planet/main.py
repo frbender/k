@@ -1,6 +1,6 @@
 from configparser import ConfigParser
 from pixel_pusher import PixelPusher
-# from blast_piano_processor import BlastPianoProcessor
+from blast_piano_processor import BlastPianoProcessor
 from visualizer.viz_one import Viz_One
 import time
 import threading
@@ -21,9 +21,10 @@ if __name__ == '__main__':
 
     # visualization
     # todo: add config to vis
-    vizzy = Viz_One(lowest_key,
-                     highest_key,
-                     led_amount)
+    vizzy = Viz_One(config,
+                    lowest_key,
+                    highest_key,
+                    led_amount)
 
 
     def key_press(key, vel):
@@ -34,14 +35,13 @@ if __name__ == '__main__':
         vizzy.key_release(key - lowest_key)
 
 
-    #blaster = BlastPianoProcessor(config=config, key_press_callback=key_press, key_release_callback=key_release)
+    blaster = BlastPianoProcessor(config=config, key_press_callback=key_press, key_release_callback=key_release)
 
     old_time = time.time()
 
-    #pushy.set_all((0, 0.05, 0))
-    #pushy.show()
-
     vizzy.key_press(10, 1)
+
+
     def tick(old_time):
         new_time = time.time()
 

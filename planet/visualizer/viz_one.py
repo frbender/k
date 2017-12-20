@@ -8,8 +8,8 @@ class Viz_One(BaseVisualizer):
         BaseVisualizer.__init__(self, config, lowest_key, highest_key, led_amount)
 
         self.colorStrip = [[0, 0, 0]] * led_amount
-        self.blurRad = int(BaseVisualizer.config["viz_one"]["blur_radius"])
-        self.alpha = int(BaseVisualizer.config["viz_one"]["alpha"])
+        self.blurRad = int(self.config["viz_one"]["blur_radius"])
+        self.alpha = float(self.config["viz_one"]["alpha"])
 
     def draw(self):
         return self.colorStrip
